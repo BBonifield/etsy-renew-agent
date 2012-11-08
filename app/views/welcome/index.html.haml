@@ -1,0 +1,15 @@
+%h1 Pending Request Tokens
+%ul
+  - @request_tokens.each do |token|
+    %li
+      Created at:
+      = token.created_at
+%div
+  = link_to 'Create New', etsy_new_authorization_path, :class => 'btn'
+
+%h1 Access Tokens
+%ul
+  - @access_tokens.each do |token|
+    %li
+      Created at:
+      = token.created_at
