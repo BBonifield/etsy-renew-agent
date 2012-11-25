@@ -11,13 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105054641) do
+ActiveRecord::Schema.define(:version => 20121108071119) do
 
   create_table "access_tokens", :force => true do |t|
     t.string   "token"
     t.string   "secret"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.integer  "user_id"
+    t.string   "shop_name"
+    t.boolean  "enable_auto_renew",     :default => false
+    t.integer  "renew_every_x_minutes", :default => 20
   end
 
   create_table "request_tokens", :force => true do |t|
@@ -25,6 +29,15 @@ ActiveRecord::Schema.define(:version => 20121105054641) do
     t.string   "secret"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end
