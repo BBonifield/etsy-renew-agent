@@ -7,7 +7,7 @@
     = inline_f.radio_button :enable_auto_renew, true, "Yes please, auto renew my listings"
     = inline_f.radio_button :enable_auto_renew, false, "Nope, I'll manage things myself"
 
-  = f.text_field :renew_every_x_minutes, 'Renew A Listing Every X Minutes:', :class => 'span1'
+  = f.select :renew_every_x_minutes, 'Renew A Listing Every X Minutes:', every_x_minute_options, :class => 'span1'
 
   .form-actions
     = f.submit 'Update Settings', :class => 'btn btn-medium btn-primary'

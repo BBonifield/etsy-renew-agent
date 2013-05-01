@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121108071119) do
+ActiveRecord::Schema.define(:version => 20121125203619) do
 
   create_table "access_tokens", :force => true do |t|
     t.string   "token"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(:version => 20121108071119) do
     t.boolean  "enable_auto_renew",     :default => false
     t.integer  "renew_every_x_minutes", :default => 20
   end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "request_tokens", :force => true do |t|
     t.string   "token"

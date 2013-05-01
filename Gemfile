@@ -4,7 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'etsy'
 gem 'sorcery'
-gem 'sidekiq'
+gem 'delayed_job_active_record'
 
 gem 'haml-rails'
 
